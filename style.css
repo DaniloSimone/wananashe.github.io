@@ -1,0 +1,137 @@
+body {
+    padding: 0;
+    margin: 0;
+    background-color: #f9d2d1;
+    overflow-x: hidden;
+}
+
+/* --- CONTENEDOR DE SCROLL --- */
+.scroll-wrapper {
+    position: relative;
+    /* la altura la pone el JS según cuántos elementos haya */
+}
+
+.sticky-container {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+}
+
+/* --- ANIMACIÓN --- */
+.elemento-scroll {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    opacity: 0;
+    transform: translate(-50%, -50%) translateX(150px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+    pointer-events: none;
+}
+
+/* el que está activo, centrado y visible */
+.elemento-scroll.visible {
+    opacity: 1;
+    transform: translate(-50%, -50%) translateX(0);
+    pointer-events: auto;
+    z-index: 2;
+}
+
+/* los que ya pasaron, se quedan escondidos a la izquierda */
+.elemento-scroll.antes {
+    opacity: 0;
+    transform: translate(-50%, -50%) translateX(-150px);
+}
+
+/* los que todavía no llegan, esperan escondidos a la derecha */
+.elemento-scroll.despues {
+    opacity: 0;
+    transform: translate(-50%, -50%) translateX(150px);
+}
+/* --------------------------- */
+
+
+
+.sin-estilos {
+  text-decoration: none; 
+  color: inherit;       
+}
+
+.sin-estilos:visited, 
+.sin-estilos:hover, 
+.sin-estilos:active, 
+.sin-estilos:focus {
+  text-decoration: none;
+  color: inherit;
+  outline: none; 
+}
+
+
+.titulo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Dancing Script', cursive;
+    font-size: 4rem;
+    text-align: center;
+    color: black; 
+    padding: 20px;
+    background-color: #E0EEE0;
+    height: 45vh;
+    width: 100vh;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.aviso {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    color: gray;
+}
+
+.flor {
+    display: flex;
+    align-items: center;
+    font-family: 'Dancing Script', cursive;
+    font-size: 4rem;
+    color: black; 
+    padding: 20px 20px 20px 0; 
+    background-color: #E0EEE0;
+    height: 45vh;
+    width: 100vh;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.img {
+    flex: 1; 
+    height: 100%; 
+    display: flex;
+    align-items: flex-end; 
+    justify-content: flex-start;
+}
+
+.img img {
+    height: 100%;
+    width: 400px; 
+    object-fit: contain; 
+    transition: transform 0.4s ease-out; 
+    transform-origin: bottom; 
+}
+
+.img img:hover {
+    transform: scale(1.15); 
+    cursor: pointer; 
+}
+
+.texto {
+    flex: 3; 
+    text-align: center; 
+    padding: 0 20px; 
+}
+
+.img img.foto-chica {
+ /* bajale el número hasta que te guste */
+    height: 450px;  /* opcional, si también se te va por altura */
+}
